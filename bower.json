@@ -1,0 +1,21 @@
+{
+  "name": "5 Guys Brass and Ties",
+  "homepage": "www.5guysbrass.com",
+  "authors": [
+    "Tim Sarvey <timsarvey@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-velocity": "^0.3.2"
+  }
+}

@@ -29,14 +29,17 @@ app.controller('main', function($scope, $timeout){
 		$scope.leftCenterGuy = true;
 	}, 1000);
 
+	// center guy
 	$timeout(function(){
 		$scope.centerGuy = true;
 	}, 1200);
 
+	// right center guy
 	$timeout(function(){
 		$scope.rightCenterGuy = true;
 	}, 1800);
 
+	// right guy
 	$timeout(function(){
 		$scope.rightGuy = true;
 	}, 1600);

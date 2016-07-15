@@ -1,6 +1,11 @@
-var app = angular.module('myApp', ['angular-velocity', 'ngAnimate']);
+var app = angular.module('myApp', ['angular-velocity', 'ngAnimate', 'noCAPTCHA']);
 
-app.controller('main', function($scope, $timeout){
+app.config(['noCAPTCHAProvider', function (noCaptchaProvider) {
+    noCaptchaProvider.setSiteKey('6LeLHyUTAAAAAEZ2VFxRWDxvVLenNTaMbBphIqBG');
+  }
+]);
+
+app.controller('main', function($scope, $timeout, $http){
 	$scope.fiveGuys = false;
 	$scope.brassAndTies = false;
 	$scope.farLeftGuy = false;
@@ -43,4 +48,30 @@ app.controller('main', function($scope, $timeout){
 	$timeout(function(){
 		$scope.rightGuy = true;
 	}, 1600);
+
+	$scope.send = function(user){
+		if(!$scope.gRecaptchaResponse){
+			$scope.captchaRequired = "Please check the box, or you could be a robot.";
+			return;
+		} else {
+			$scope.captchaRequired = null;
+		}
+		
+		$http({
+			method: 'POST',
+			url: 'mail.php',
+			data: {
+				name: user.name,
+				email: user.email,
+				message: user.message,
+				captcha: $scope.gRecaptchaResponse
+			}
+		}).then(function(res){
+			console.log(res);
+			$scope.messageSuccess = 'The message was succesfully sent. Thank you for taking the time to contact us. You should receive a response within a few business days. Thanks again!';
+		}, function(err){
+			console.log(err);
+			$scope.errorMessage = 'An error occured. Perhaps you can try again later. Sorry for the inconvenience.';
+		});
+	};
 });

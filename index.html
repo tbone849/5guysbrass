@@ -2,13 +2,16 @@
 <html lang="en" ng-app='myApp'>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>5 Guys Brass & Ties</title>
+	<link rel="shortcut icon" href="trumpet.ico" />
 	<link rel="stylesheet" type="text/css" href="styles/styles.css">
 	<script src='libs/angular/angular.min.js'></script>
 	<script src='libs/angular-animate/angular-animate.min.js'></script>
 	<script src="libs/velocity/velocity.min.js"></script>
 	<script src="libs/velocity/velocity.ui.min.js"></script>
 	<script src="libs/angular-velocity/angular-velocity.min.js"></script>
+	<script src="libs/angular-no-captcha/src/angular-no-captcha.js"></script>
 	<script src='js/app.js'></script>
 </head>
 <body ng-controller='main'>
@@ -86,9 +89,62 @@
 			</g>
 		</svg>
 	</div>
-	<div>
-		<h1>Conent</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?</p>
+	<div class='about section'>
+		<h1 class='first-header'>About</h1>
+		<p><b>5 Guys Brass & Ties</b> is a brass quintet comprised of professional musicians. The group performs in the Central Pennsylvania region for weddings, church functions, parties, community events and other special occasions. They are comfortable peforming any genre of music and are well versed in many styles.</p>
+		<h1>The Musicians</h1>
+		<h2><b>Jordan Canner, Trumpet</b></h2>
+		<p>Jordan is the Director of Bands at Huntingdon Area High School in Huntingdon, PA. He earned his undergraduate degree in Music Education from Indiana University of Pennsylvania. Jordan performs in several local ensembles in the area as well.</p>
+		<h2><b>Rick Kane, Trumpet</b></h2>
+		<p>Rick is the Director of Bands at Mount Union Area High School and an Adjunct Professor at the Pennsylvania Highlands Community College. He earned is undergraduate degree in Music Education from Indiana University of Pennsylvania. Rick also performs in local community ensembles.</p>
+		<h2><b>Tim Sarvey, Trombone</b></h2>
+		<p>Tim is pursuing the field of web development, but has earned an undergraduate degree in Music Educaiton from Indiana University of Pennsylvania and a masters degree in Music Technology from Indiana University Purdue University of Indianapolis. Tim performs in local ensembles throughout the year.</p>
+		<h2><b>Steve Rogers, Euphonium/Altonium</b></h2>
+		<p>Steve is the Director of Bands at the Bedford Area High School in Bedford, PA. He earned his undergraduate degree in Music Education from Slippery Rock University. Steve also performs in local ensembles throught the community.</p>
+		<h2><b>Larry Sarvey, Tuba</b></h2>
+		<p>Larry is the Director of Bands at the Everett Area Middle/High School in Everett, PA. He earned is undergraduate degree in Music Education from Indiana University of Pennsylvania. Larry performs throughout the year in various ensembles.</p>
+	</div>
+	<div class='section contact'>
+		<h1 class='first-header'>We are for hire!</h1>
+		<p>If you are interested in having <b>5 Guys Brass & Ties</b> perform for an event, please fill out the form below and someone will contact you within a few business days. In your message, please provide as many details as you can such as event date, time, duration, location, and type of function. Thank you for your time!</p>
+		
+		<div class='row form' ng-hide='messageSuccess || errorMessage'>
+			<div class='col-md-3'></div>
+			<form class='col-md-6' name="contact" ng-submit="send(user)">
+				<div class="form-group">
+					<label>Name</label>
+					<input type="text" class="form-control input-lg" ng-model="user.name" placeholder="Enter Name" required>
+				</div>
+				<div class="form-group">
+					<label>Email address</label>
+					<input type="email" class="form-control input-lg" ng-model="user.email" placeholder="Enter email" required>
+				</div>
+				<div class="form-group">
+					<label>Message</label>
+					<textarea class="form-control input-lg" rows='4' ng-model="user.message" placeholder="Please provide details about your event." required></textarea>
+				</div>
+				<no-captcha
+					g-recaptcha-response="gRecaptchaResponse"
+					theme='light'
+					control="noCaptchaControl"
+					site-key="6LeLHyUTAAAAAEZ2VFxRWDxvVLenNTaMbBphIqBG">
+				</no-captcha>
+				<div class='captcha-required' ng-if='captchaRequired'>
+					<p>{{captchaRequired}}</p>
+				</div>
+				<button type="submit" class="btn btn-default btn-lg submit">Submit</button>
+			</form>
+			<div class='col-md-3'></div>
+		</div>
+		<div class='message' ng-if='messageSuccess'>
+			<p>{{messageSuccess}}</p>
+		</div>
+		<div class='message' ng-if='errorMessage'>
+			<p>{{errorMessage}}</p>
+		</div>
+	</div>
+	<div class='footer'>
+		&copy;2016 Created by <a href='http://sarvey-webdev.com'>Tim Sarvey</a>
 	</div>
 </body>
 </html>

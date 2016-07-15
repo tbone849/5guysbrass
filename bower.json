@@ -16,6 +16,8 @@
     "tests"
   ],
   "dependencies": {
-    "angular-velocity": "^0.3.2"
+    "angular-velocity": "^0.3.2",
+    "bootstrap-sass": "^3.3.6",
+    "angular-no-captcha": "^0.6.0"
   }
 }

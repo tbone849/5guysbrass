@@ -68,7 +68,11 @@ app.controller('main', function($scope, $timeout, $http){
 			}
 		}).then(function(res){
 			console.log(res);
-			$scope.messageSuccess = 'The message was succesfully sent. Thank you for taking the time to contact us. You should receive a response within a few business days. Thanks again!';
+			if(res.data.status === 'error'){
+				$scope.messageSuccess = 'For some reason, the message did not send. We apologize that this happened. Perhaps you can try again in a moment.';
+			} else {
+				$scope.messageSuccess = 'The message was succesfully sent. Thank you for taking the time to contact us. You should receive a response within a few business days. Thanks again!';
+			}
 		}, function(err){
 			console.log(err);
 			$scope.errorMessage = 'An error occured. Perhaps you can try again later. Sorry for the inconvenience.';

@@ -5,6 +5,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>5 Guys Brass & Ties, Brass Quintet</title>
 	<meta name="description" content="5 Guys Brass & Ties is a brass quintet that performs in the Central Pennsylvania region for weddings, parties, community events and other special occations." />
+	<meta property="og:url" content="http://www.your-domain.com/your-page.html" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="5 Guys Brass & Ties, Brass Quintet" />
+	<meta property="og:description" content="5 Guys Brass & Ties is a brass quintet that performs in the Central Pennsylvania region for weddings, parties, community events and other special occations." />
+	<meta property="og:image" content="http://walkthemock.com/images/logo.jpg" />
 	<link rel="shortcut icon" href="trumpet.ico" />
 	<link rel="stylesheet" type="text/css" href="styles/styles.css">
 	<script src='libs/angular/angular.min.js'></script>
@@ -16,6 +21,14 @@
 	<script src='js/app.js'></script>
 </head>
 <body ng-controller='main'>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 	<div class='logo'>
 		<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="513px" height="402.407px" viewBox="0 0 513 402.407" enable-background="new 0 0 513 402.407" xml:space="preserve">
 			<g id="Layer_1"
@@ -91,6 +104,7 @@
 		</svg>
 	</div>
 	<div class='about section'>
+		<div class="fb-like like" data-href="https://walkthemock.com" data-layout="standard" data-action="like" data-colorscheme='dark' data-size="large" data-show-faces="false" data-share="false"></div>
 		<h1 class='first-header'>About</h1>
 		<p><b>5 Guys Brass & Ties</b> is a brass quintet comprised of professional musicians. The group performs in the Central Pennsylvania region for weddings, church functions, parties, community events and other special occasions. They are comfortable performing any genre of music and are well versed in many styles.</p>
 		<h1>The Musicians</h1>

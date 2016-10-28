@@ -17,37 +17,37 @@ app.controller('main', function($scope, $timeout, $http){
 	// five guys
 	$timeout(function(){
 		$scope.fiveGuys = true;
-	}, 500);
+	}, 1500);
 
 	// brass and ties
 	$timeout(function(){
 		$scope.brassAndTies = true;
-	}, 2500);
+	}, 3500);
 
 	// far left guy
 	$timeout(function(){
 		$scope.farLeftGuy = true;
-	}, 1400);
+	}, 2400);
 
 	// left center guy
 	$timeout(function(){
 		$scope.leftCenterGuy = true;
-	}, 1000);
+	}, 2000);
 
 	// center guy
 	$timeout(function(){
 		$scope.centerGuy = true;
-	}, 1200);
+	}, 2200);
 
 	// right center guy
 	$timeout(function(){
 		$scope.rightCenterGuy = true;
-	}, 1800);
+	}, 2800);
 
 	// right guy
 	$timeout(function(){
 		$scope.rightGuy = true;
-	}, 1600);
+	}, 2600);
 
 	$scope.send = function(user){
 		if(!$scope.gRecaptchaResponse){
